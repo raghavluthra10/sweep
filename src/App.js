@@ -6,19 +6,14 @@ import Feed from './Feed';
 function App() {
   return (
     <div className="App">
-   
-    {/* sidebar */}
-    <Sidebar  />
-
-    {/* feed(posts) */}
-    <Feed  />
-   
-    {/* widgets */}
-    <Widgets  />
-
-
+      <Sidebar  />
+      <Feed  />
+      <Widgets  />
     </div>
   );
 }
 
 export default App;
+
+
+// 02:50:00

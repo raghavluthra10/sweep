@@ -17,7 +17,7 @@
 .SidebarOption:hover {
     color: var(--twitter-color);
     transition: color 100ms ease-out;
-    background-color: #fefee8;
+    background-color: #c6e7fc;
     border-radius: 30px;
 }
 

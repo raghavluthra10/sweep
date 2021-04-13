@@ -36,7 +36,7 @@ const Sidebar = () => {
 
             <SidebarOptions text='More' Icon={<MoreHorizIcon  />} />
 
-            <Button variant='outlined' className='sidebar__tweet' fullWidth > Sweep </Button>
+            <Button variant='outlined' className='sidebar__tweet' fullWidth > Tweet </Button>
 
            </div>
     )
