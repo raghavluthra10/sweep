@@ -46,3 +46,7 @@
 .post__avatar {
     padding: 20px;
 }
+
+.postComment, .postRetweet, .postLike, .postBookMark {
+    cursor: pointer;
+}
