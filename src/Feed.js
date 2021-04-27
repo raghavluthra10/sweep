@@ -11,7 +11,7 @@ const Feed = () => {
 
     useEffect(() => {
         db.collection('posts').onSnapshot(snapshot => (
-            setPosts(snapshot.docs.map(doc => doc.data()))
+            setPosts(snapshot.docs.map(doc => ({ id:doc.id , detail: doc.data()})))
         ))
     }, [])
 
@@ -26,13 +26,14 @@ const Feed = () => {
             <FlipMove>
                 {posts.map(post => (
                     <Post  
-                    key={post.text}
-                    displayName={post.displayName}
-                    userName={post.userName}
-                    verified={post.verified}
-                    text={post.text}
-                    avatar={post.avatar}
-                    image={post.image}
+                    key={post.detail.text}
+                    displayName={post.detail.displayName}
+                    userName={post.detail.userName}
+                    verified={post.detail.verified}
+                    text={post.detail.text}
+                    avatar={post.detail.avatar}
+                    image={post.detail.image}
+                    docId={post.id}
                     />
                 ))}
             </FlipMove>

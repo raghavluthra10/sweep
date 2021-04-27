@@ -11,6 +11,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 
 const Sidebar = () => {
@@ -20,7 +21,10 @@ const Sidebar = () => {
             <TwitterIcon className='sidebar__twitterIcon' />
 
             {/* sidebar option Component */}
-            <SidebarOptions  active text='Home' Icon={<HomeIcon  />} />
+            <Link to='/' >
+                <SidebarOptions  active text='Home' Icon={<HomeIcon  />} />
+            </Link>
+            
 
             <SidebarOptions text='Explore' Icon={<SearchIcon  />} />
 
@@ -28,7 +32,9 @@ const Sidebar = () => {
 
             <SidebarOptions text='Messages' Icon={<MailOutlineIcon  />} />
 
-            <SidebarOptions text='Bookmarks' Icon={<BookmarkBorderIcon  />} />
+            <Link to='/bookmarks'>
+                <SidebarOptions text='Bookmarks' Icon={<BookmarkBorderIcon  />} />
+            </Link>
 
             <SidebarOptions text='Lists' Icon={<ListAltIcon  />} />
 
