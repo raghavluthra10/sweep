@@ -7,7 +7,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PublishIcon from '@material-ui/icons/Publish';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import { Avatar } from '@material-ui/core';
+import { Avatar, IconButton } from '@material-ui/core';
 
 
 const Bookmarks = () => {
@@ -20,15 +20,11 @@ const Bookmarks = () => {
         ))
     }, [])
 
-    const removeBookmark = (e) => {
-        e.preventDefault();
-
-        bookmarks.map((bookmark) => {
-            db.collection('bookmarks').doc(bookmark.id).delete();
-        })
-        
-        
-    }
+    const removeBookmark = (id) => {
+  
+        db.collection("bookmarks").doc(id).delete();   
+    }    
+    
 
     return (
         <div className='bookmarks' >
@@ -69,10 +65,9 @@ const Bookmarks = () => {
                                         />
                 
                                         <div className='bookmarks__footer'>
-                                            <ChatBubbleOutlineIcon fontSize='small' className='bookmarksComment' />
-                                            <RepeatIcon fontSize='small' className='bookmarksRetweet' />
-                                            <FavoriteBorderIcon fontSize='small' className='bookmarksLike' />
-                                            <BookmarkBorderIcon fontSize='small' onClick={removeBookmark} className='bookmarksBookMark' />
+                                            <IconButton>
+                                                <BookmarkBorderIcon fontSize='small' onClick={() => removeBookmark(bookmark.id)} className='bookmarksBookMark' />
+                                            </IconButton>
                                         </div>
                                 
                                     </div>

@@ -1,4 +1,4 @@
-import { Avatar } from '@material-ui/core';
+import { Avatar, IconButton } from '@material-ui/core';
 import React, { useState, forwardRef, useEffect } from 'react';
 import './Post.css';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
@@ -8,6 +8,8 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PublishIcon from '@material-ui/icons/Publish';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import db from './firebase';
+
+
 
 const Post = forwardRef(({ 
     displayName,
@@ -19,27 +21,21 @@ const Post = forwardRef(({
     docId
     }, ref) => {
 
-    
-    const [ posts, setPosts ] = useState([]);
 
-    useEffect(() => {
-        db.collection('posts').onSnapshot(snapshot => (
-            setPosts(snapshot.docs.map(doc => doc.data()))
-        ))
-    }, [])
-
+        
     const bookmark = (e) => {
         e.preventDefault();
 
-       
-            // db.collection('bookmarks').doc(docId).add({
-            //     displayName: posts.displayName,
-            //     userName: posts.userName,
-            //     verified: posts.verified,
-            //     text: posts.text,
-            //     avatar: posts.avatar,
-            //     image: posts.image
-            // })
+        db.collection("bookmarks").add({
+            displayName: displayName,
+            userName: userName,
+            verified: verified,
+            text: text,
+            avatar: avatar,
+            image: image
+        })
+        
+           
       
     }
 
@@ -81,10 +77,24 @@ const Post = forwardRef(({
                  />
 
                 <div className='post__footer'>
-                    <ChatBubbleOutlineIcon fontSize='small' className='postComment' />
+                    <IconButton>
+                        <ChatBubbleOutlineIcon fontSize='small' className='postComment' />
+                    </IconButton>
+                    
+                    <IconButton>
                     <DeleteOutlineIcon fontSize='small' className='postRetweet' onClick={deleteTweet} />
-                    <FavoriteBorderIcon fontSize='small' className='postLike' />
+                    </IconButton>
+
+                    <IconButton>
+                    <FavoriteBorderIcon  fontSize='small' className='postLike' />
+                    </IconButton>
+
+                    <IconButton>
                     <BookmarkBorderIcon fontSize='small' className='postBookMark' onClick={bookmark} />
+                    </IconButton>
+                    
+                    
+                   
                 </div>
             
             </div>
