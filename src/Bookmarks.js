@@ -65,8 +65,8 @@ const Bookmarks = () => {
                                         />
                 
                                         <div className='bookmarks__footer'>
-                                            <IconButton>
-                                                <BookmarkBorderIcon fontSize='small' onClick={() => removeBookmark(bookmark.id)} className='bookmarksBookMark' />
+                                            <IconButton onClick={() => removeBookmark(bookmark.id)}>
+                                                <BookmarkBorderIcon fontSize='small'  className='bookmarksBookMark' />
                                             </IconButton>
                                         </div>
                                 

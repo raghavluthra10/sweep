@@ -45,7 +45,14 @@ const TweetBox = () => {
                     type='text'  
                 />
 
-                <Button type='submit' onClick={sendTweet} className='tweetBox__tweetButton'> Tweet </Button>
+                <Button 
+                type='submit'  
+                disabled={tweetImage === '' && tweetMessage === ''}
+                onClick={sendTweet} 
+                className='tweetBox__tweetButton'
+                > 
+                    Tweet
+                </Button>
             </form>
         </div>
     )
